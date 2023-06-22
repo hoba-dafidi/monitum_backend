@@ -27,10 +27,9 @@
     "phone" => "phone",
     "user_id" => "user_id"
 }
-```
+
 - For a new client to register by themselves
 
-```PHP
 //Endpoint is
 /api/v1/client/signup
 // Data to be sent
@@ -94,22 +93,55 @@
 ```PHP
 //Endpoint is
 
-/api/v1/categories/read
-// No data to be sent except 'request headers'
+/api/v1/categories/read?user_id=4
+
 
 -Response is
 -status code is 200 Ok
 
 {
+    "success": true,
+    "message": "Successful",
+    "data": [
+        {
+            "id": 4,
+            "name": "Business"
+        },
+        {
+            "id": 5,
+            "name": "Business"
+        },
+    ]
+}
+```
+
+### Create a category using HTTP POST method
+
+- This route will create the category data by the particular client
+
+```PHP
+//Endpoint is
+
+/api/v1/categories/create
+// Data to be sent
+{
+    "name": "finance"
+    "user_id" => 4,
+}
+
+-Response is
+-status code is 201 Created
+
+{
   "success": true,
   "message": "Successful",
-  "data": {required data}
+   "data": null
 }
 ```
 
 ### Update categories using HTTP PUT method
 
-- This route will update the category data: { name }
+- This route will update the particular category data: { name }
 
 ```PHP
 //Endpoint is
@@ -117,6 +149,7 @@
 /api/v1/categories/update
 // Data to be sent
 {
+    "id" => 4,
   "name": "finance"
 }
 
@@ -125,7 +158,7 @@
 
 {
   "success": true,
-  "message": "Updated",
+  "message": "Successful",
    "data": null
 }
 ```

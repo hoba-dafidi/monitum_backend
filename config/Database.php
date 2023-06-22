@@ -4,7 +4,7 @@
     private $host = 'localhost';
     private $username = 'root';
     private $password = 'root';
-    private $dbname = 'monitum';
+    private $dbname = 'project_monitum';
     private $conn;
 
     // DB Connect

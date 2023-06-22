@@ -24,7 +24,7 @@ class Model {
         $clean_data = [];
         //sanitize post data
         foreach ($data as $key => $value) {
-            $clean_data[$key] = htmlspecialchars(stripslashes(strip_tags($value)));    
+            $clean_data[$key] = htmlspecialchars(strip_tags($value));    
         }
         return $clean_data;
     }
@@ -33,6 +33,15 @@ class Model {
     public function readRecords($where_clause = 1, $data = [], $column = "*")
     {
         $query = "SELECT $column FROM $this->table WHERE $where_clause ";
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute($data);
+        return $stmt->fetchAll();
+    }
+
+    // Select all records from the table
+    public function joinRecords($id1, $id2, $table2, $where_clause = 1, $data = [], $column = "*")
+    {
+        $query = "SELECT $column FROM $this->table t1 INNER JOIN $table2 t2 ON t1.$id1=t2.$id2 WHERE $where_clause ";
         $stmt = $this->conn->prepare($query);
         $stmt->execute($data);
         return $stmt->fetchAll();

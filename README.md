@@ -27,6 +27,7 @@
     "user_id" => "user_id"
 }
 
+
 - For a new client to register by themselves
 
 //Endpoint is

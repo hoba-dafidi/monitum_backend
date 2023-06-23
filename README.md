@@ -7,7 +7,6 @@
 - PUT: To Update resources
 - DELETE: To delete resources
 
-
 ## Features
 
 - For a new client to register by admin
@@ -162,5 +161,3 @@
    "data": null
 }
 ```
-
-

@@ -24,6 +24,7 @@
     "organisation" => "organisation",
     "department" => "department",
     "phone" => "phone",
+    "is_client" => 1,
     "user_id" => "user_id"
 }
 
@@ -41,7 +42,8 @@
     "lastname" => "lastname",
     "organisation" => "organisation",
     "department" => "department",
-    "phone" => "phone"
+    "phone" => "phone",
+    "is_client" => 1,
 }
 
 
@@ -81,6 +83,7 @@
         "lastname": "ty",
         "organisation": null,
         "department": "t",
+        "is_client" => 1,
         "user_id": null
     }
 }

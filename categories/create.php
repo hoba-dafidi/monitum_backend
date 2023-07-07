@@ -35,14 +35,18 @@ $data = $category->sanitize($data);
 // Initialize create parameters
 $column = "name, user_id";
 $value = ":name, :user_id";
-    
+$response = $err = '';    
     // Create category
-$response = $category->create($column,$value,$data);
+    try {
+        $response = $category->create($column,$value,$data);
+    } catch (\Throwable $th) {
+        $err = $th->getMessage();
+    }
 
 if ($response):
     http_response_code(201);
     echo json_encode(["success" => true, "message" => "Successful", "data" => null]);
 else:
     http_response_code(501);
-    echo json_encode(["success" => false, "message" => "Not Successful", "data" => null]);
+    echo json_encode(["success" => false, "message" => $err, "data" => null]);
 endif;

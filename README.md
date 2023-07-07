@@ -10,11 +10,11 @@
 
 ## Features
 
-- For a new client to register by admin
+- For a new client to be registered by admin
 
 ```PHP
 //Endpoint is
-/api/v1/client/signup
+/api/v1/clients/signup
 // Data to be sent
 {
     "username" => "username",
@@ -31,7 +31,7 @@
 - For a new client to register by themselves
 
 //Endpoint is
-/api/v1/client/signup
+/api/v1/clients/signup
 // Data to be sent
 {
     "username" => "username",
